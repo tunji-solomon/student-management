@@ -1,0 +1,31 @@
+{% extends 'students/base.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/button.css' %}">
+<form action="{% url 'add_student' %}" method="POST" class="fcontainer">
+<div class="card bg-light ms-4 me-4 mb-4" id="form-container">
+    <div class="card-header">
+        <i class="fa-solid fa-list fa-lg"></i>&nbsp;&nbsp;Add Student
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+    {% csrf_token %}
+
+{% if messages %}
+{% for message in messages %}
+<h4 class="alert alert-primary">{{message}}</h4>
+{% endfor%}
+{% endif %}
+
+    <div class="add-student-form">
+        {{ forms.as_table}}
+    </div>
+</p>   
+</div>
+</div>
+    <input type="reset" value="Clear" class="clear-submit-btn" id="clear-student-button">
+    <button class="add-student-button" type="submit">Submit</button>
+</form>
+
+{% endblock %}
+ 
