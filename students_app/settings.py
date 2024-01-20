@@ -22,7 +22,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '9d0b2b115622b5f8add970194f9f8adf'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
@@ -85,7 +85,7 @@ DATABASES = {
     }
 }
 database_url = os.environ.get('DATABASE_URL')
-DATABASES['default'] = dj_database_url.parse('postgres://mydatabase_2k8m_user:DiozewiEnTFlOYdSWre5f7sbtEcMw4Le@dpg-cmlb02mn7f5s73bn4smg-a.oregon-postgres.render.com/mydatabase_2k8m')
+DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 # postgres://mydatabase_2k8m_user:DiozewiEnTFlOYdSWre5f7sbtEcMw4Le@dpg-cmlb02mn7f5s73bn4smg-a/mydatabase_2k8m
