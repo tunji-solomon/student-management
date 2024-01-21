@@ -27,11 +27,25 @@
 
               {% if user.is_authenticated %}
 
+              {% if user.is_superuser %}
+              {% with name='Admin'%}
+
+              <li class="nav-item ">
+                <a class="nav-link">
+                    <i class="fa-solid fa-user fa-lg"></i> Welcome, {{name}}
+
+                </a>
+              </li>
+              {% endwith %}
+              {% else %}
+
               <li class="nav-item ">
                 <a class="nav-link">
                     <i class="fa-solid fa-user fa-lg"></i> Welcome, {{user.username}}
+
                 </a>
               </li>
+              {% endif %}
 
               {% if user.is_superuser %}
 
