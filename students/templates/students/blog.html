@@ -63,11 +63,16 @@
                     </div>
                     {% endfor %}
 
-                    {% endif %}
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+
+                    {% else %}
+                    <p>No post yet</p>
+
+                    {% endif %}
+
                 </div>
             </div>
         </div>
