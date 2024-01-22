@@ -18,5 +18,6 @@ urlpatterns =[
     path('blog/', views.blog, name='blog_view'),
     path('blog_post/', views.blog_post, name='blog_post'),
     path('blog_details/<str:slug>', views.blog_details, name='blog_details'),
-    path('load_testimony/', views.load_testimony, name='load_testimony')
+    path('load_testimony/', views.load_testimony, name='load_testimony'),
+    path('delete_blog/<int:id>', views.delete_blog, name='delete_blog')
 ]

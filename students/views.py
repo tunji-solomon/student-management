@@ -226,6 +226,13 @@ def blog_details(request,slug):
     blog = Blog.objects.get(slug=slug)
     return render(request,'students/blog_detail.html',{'blog':blog})
 
+def delete_blog(request,id):
+
+    blog = Blog.objects.get(pk=id)
+    blog.delete()
+
+    return HttpResponseRedirect(reverse('blog_view'))
+
 def load_testimony(request):
     testimonials = Testimonials.objects.all()
     my_message = []
