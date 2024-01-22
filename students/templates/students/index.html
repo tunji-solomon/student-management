@@ -106,6 +106,12 @@
                                         <div class="small text-muted">-Mr/Mrs/Ms&nbsp; {{testimony.fullname}}</div>
                                     </div>
                                 </div>
+                                {% if user.is_superuser%}
+
+                                <a class="btn btn-primary text-uppercase" href="{% url 'delete_testimony' testimony.id %}">Delete
+                                </a>
+                                {% endif %}
+
                             </div>
                         </div>
                      {% endfor %}

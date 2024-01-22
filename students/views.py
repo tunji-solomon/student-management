@@ -245,6 +245,13 @@ def load_testimony(request):
     return render(request, 'students/index.html', context)
 
 
+def delete_testimony(request,id):
+
+    testimony = Testimonials.objects.get(pk=id)
+    testimony.delete()
+    return HttpResponseRedirect(reverse('index'))
+
+
 
 
 
