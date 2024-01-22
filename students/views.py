@@ -211,9 +211,13 @@ def blog_post(request):
         content = request.POST.get('content')
         image = request.FILES.get('image')
 
-        posted_blog = Blog(title=title,brief=brief,content=content,image=image,slug=title)
-        posted_blog.save()
-        return HttpResponseRedirect(reverse('blog_view'))
+        if Blog.objects.filter(title = title).exists():
+            messages.info(request, 'Title already exist')
+            return render(request, 'students/blog_post.html')
+        else:
+            posted_blog = Blog(title=title,brief=brief,content=content,image=image,slug=title)
+            posted_blog.save()
+            return HttpResponseRedirect(reverse('blog_view'))
 
     return render(request, 'students/blog_post.html')
 
