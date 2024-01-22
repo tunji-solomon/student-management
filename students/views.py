@@ -233,6 +233,7 @@ def delete_blog(request,id):
 
     return HttpResponseRedirect(reverse('blog_view'))
 
+
 def load_testimony(request):
     testimonials = Testimonials.objects.all()
     my_message = []
