@@ -7,6 +7,12 @@
 </style>
 <body style="background: url('{{ STATIC_URL }}media/books.JPG');">
 
+{% if messages %}
+{% for message in messages%}
+    <h5 class="alert alert-primary ms-4 me-4 mt-4">{{message}}</h5>
+    {% endfor %}
+{% endif %}
+
 <section class="bg-light py-5">
     <div class="container px-5 my-5 px-5">
         <div class="row gx-5 justify-content-center">
