@@ -120,7 +120,7 @@ def all_students(request):
 
     }
     if request.method == 'POST':
-        selected = request.POST.get('department')
+        selected = request.POST.get('department').capitalize()
         if selected == 'All departments':
             context = {
             'students': Our_student.objects.all(),
