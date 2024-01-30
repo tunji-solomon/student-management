@@ -1,10 +1,10 @@
 
 .fcontainer{
     align-self: center;
-    border: 2px solid black;
     justify-content: center;
     width: fit-content;
-    margin-top: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 .bt-1,
 .add-student-button,
@@ -24,8 +24,8 @@
 }
 
 #clear-student-button{
-    background-color: pink;
-    margin-left: 50px;
+    background-color: rgb(250, 75, 104);
+    margin-left: 160px;
 }
 .user-form,
 .add-student-form{
