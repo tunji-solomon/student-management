@@ -4,3 +4,5 @@ venv
 *.pyc
 __pycache__
 db.sqlite3
+.env
+students_app/static
