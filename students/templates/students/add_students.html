@@ -13,12 +13,12 @@
 
 {% if messages %}
 {% for message in messages %}
-<h4 class="alert alert-primary">{{message}}</h4>
+{% comment %} <h4 class="alert alert-primary">{{message}}</h4> {% endcomment %}
 {% endfor%}
 {% endif %}
 
     <div class="add-student-form">
-        {{ forms.as_table}}
+        {{ form.as_table}}
     </div>
 </p>   
 </div>

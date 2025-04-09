@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from django.urls import reverse
 from django.contrib import messages
@@ -145,14 +145,27 @@ def view_student(request,id):
 
 # add student section
 
+# def add_student(request):
+#     forms = StudentForm()
+#     if request.method == 'POST':
+#         new_student = StudentForm(request.POST)
+#         if forms.is_valid():
+#             new_student.save()
+#             messages.success(request, 'Student added successfully')
+#             return HttpResponseRedirect(reverse('all_student'))
+#     return render(request, 'students/add_students.html',{'forms':forms})
+
 def add_student(request):
-    forms = StudentForm()
     if request.method == 'POST':
-        new_student = StudentForm(request.POST)
-        new_student.save()
-        messages.info(request, 'Student added successfully')
-        return HttpResponseRedirect(reverse('all_student'))
-    return render(request, 'students/add_students.html',{'forms':forms})
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Student added successfully')
+            return redirect('all_student')
+    else:
+        form = StudentForm()  # empty form on GET request
+
+    return render(request, 'students/add_students.html', {'form': form})
 
 # update student section
 
